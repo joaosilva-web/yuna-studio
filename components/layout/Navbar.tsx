@@ -13,8 +13,14 @@ export default function Navbar() {
   return (
     <header className="fixed top-0 left-0 z-50 w-full border-b border-white/[0.04] bg-background/70 backdrop-blur-xl backdrop-saturate-150">
       <Container className="flex h-[72px] items-center justify-between">
-        <Link href="/" className="text-sm font-bold tracking-[0.15em] uppercase text-foreground transition-opacity duration-300 hover:opacity-80">
-          Yuna Studio
+        <Link
+          href="/"
+          className="text-sm font-bold tracking-[0.15em] uppercase text-foreground transition-opacity duration-300 hover:opacity-80"
+        >
+          <span className="flex items-center gap-3">
+            <img src="/yuna-logo.svg" alt="Yuna Studio" className="h-6 w-6" />
+            <span>Yuna Studio</span>
+          </span>
         </Link>
 
         <nav className="hidden items-center gap-10 md:flex">

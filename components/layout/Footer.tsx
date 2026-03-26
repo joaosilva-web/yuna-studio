@@ -13,7 +13,10 @@ export default function Footer() {
     <footer className="border-t border-white/[0.04] bg-background-secondary py-12">
       <Container className="flex flex-col items-center justify-between gap-8 md:flex-row">
         <p className="text-sm font-bold tracking-[0.15em] uppercase">
-          Yuna Studio
+          <span className="flex items-center gap-3">
+            <img src="/yuna-logo.svg" alt="Yuna Studio" className="h-6 w-6" />
+            <span>Yuna Studio</span>
+          </span>
         </p>
 
         <p className="text-xs text-muted-dark">
