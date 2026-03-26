@@ -3,7 +3,7 @@ import Footer from "@/components/layout/Footer";
 import HeroSection from "@/components/sections/HeroSection";
 import ServicesSection from "@/components/sections/ServicesSection";
 import DiferencialSection from "@/components/sections/DiferencialSection";
-import WorkSection from "@/components/sections/WorkSection";
+import PortfolioSection from "@/components/sections/portfolio/PortfolioSection";
 import MethodSection from "@/components/sections/MethodSection";
 import ProcessSection from "@/components/sections/ProcessSection";
 import VisionSection from "@/components/sections/VisionSection";
@@ -17,7 +17,7 @@ export default function Home() {
         <HeroSection />
         <ServicesSection />
         <DiferencialSection />
-        <WorkSection />
+        <PortfolioSection />
         <MethodSection />
         <ProcessSection />
         <VisionSection />
