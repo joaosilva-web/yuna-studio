@@ -3,10 +3,10 @@ import Container from "./Container";
 import Button from "../ui/Button";
 
 const navLinks = [
-  { href: "#services", label: "Services" },
-  { href: "#work", label: "Work" },
-  { href: "#process", label: "Process" },
-  { href: "#contact", label: "Contact" },
+  { href: "#services", label: "Serviços" },
+  { href: "#work", label: "Portfólio" },
+  { href: "#process", label: "Processo" },
+  { href: "#contact", label: "Contato" },
 ];
 
 export default function Navbar() {
