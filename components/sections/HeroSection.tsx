@@ -74,18 +74,18 @@ export default function HeroSection() {
       {/* Content */}
       <Container className="relative z-10 py-32">
         <p className="mb-6 text-xs font-semibold uppercase tracking-[0.25em] text-muted">
-          From idea to production. No noise.
+          Da ideia à produção. Sem dor de cabeça.
         </p>
 
         <h1 className="max-w-2xl text-4xl font-black leading-tight md:text-6xl lg:text-7xl uppercase">
-          Products that
+          O SEU NEGÓCIO
           <br />
-          actually <span className="italic text-accent">work.</span>
+          transformado em <span className="italic text-accent">produto digital.</span>
         </h1>
 
         <p className="mt-6 max-w-lg text-base leading-relaxed text-muted md:text-lg">
-          We design and build digital products with clarity, precision, and
-          performance. We bridge the gap between imagination and execution.
+          Projetamos e desenvolvemos produtos digitais com clareza, precisão e performance. 
+          Conectamos a imaginação à execução.
         </p>
 
         <div className="mt-10 flex flex-wrap gap-4">

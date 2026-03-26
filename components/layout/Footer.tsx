@@ -2,10 +2,10 @@ import Link from "next/link";
 import Container from "./Container";
 
 const footerLinks = [
-  { href: "#", label: "Our Method" },
+  { href: "#", label: "Método" },
   { href: "#", label: "Direct" },
   { href: "#", label: "LinkedIn" },
-  { href: "#", label: "Products" },
+  { href: "#", label: "Serviços" },
 ];
 
 export default function Footer() {
