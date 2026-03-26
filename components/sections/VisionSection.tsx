@@ -37,10 +37,10 @@ export default function VisionSection() {
         <h2
           data-reveal
           data-reveal-delay="1"
-          className="max-w-3xl text-3xl font-extrabold leading-[1.1] md:text-5xl lg:text-6xl"
+          className="max-w-3xl text-3xl font-extrabold leading-[1.1] md:text-5xl lg:text-6xl uppercase"
         >
-          TRANSFORMAMOS IDEIAS EM{" "}
-          <span className="text-foreground/90">PRODUTOS DIGITAIS REAIS.</span>
+          Mais do que desenvolver, estruturamos soluções digitais que fazem sentido para o {" "}
+          <span className="text-accent">seu negócio.</span>
         </h2>
 
         {/* Divider */}
