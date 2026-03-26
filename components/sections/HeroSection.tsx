@@ -90,8 +90,16 @@ export default function HeroSection() {
         </p>
 
         <div className="mt-10 flex flex-wrap gap-4">
-          <Button variant="primary">Start a project</Button>
-          <Button variant="secondary">View work</Button>
+          <a
+            href="https://wa.me/5511993495934?text=Ol%C3%A1%20Yuna%20Studio!%20Vim%20pelo%20site%20e%20gostaria%20de%20conversar%20sobre%20valores%20e%20ideias%20do%20meu%20neg%C3%B3cio."
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button variant="primary">Começar meu projeto</Button>
+          </a>
+          <a href="#work">
+            <Button variant="secondary">Conheça nosso trabalho</Button>
+          </a>
         </div>
       </Container>
     </section>
