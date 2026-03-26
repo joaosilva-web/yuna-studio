@@ -18,8 +18,18 @@ const mainServices = [
       "Sites profissionais (médicos, advogados, etc.)",
     ],
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" className="h-6 w-6" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5a17.92 17.92 0 0 1-8.716-2.247m0 0A8.966 8.966 0 0 1 3 12c0-1.264.26-2.466.732-3.558" />
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        className="h-6 w-6"
+        stroke="currentColor"
+        strokeWidth={1.5}
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5a17.92 17.92 0 0 1-8.716-2.247m0 0A8.966 8.966 0 0 1 3 12c0-1.264.26-2.466.732-3.558"
+        />
       </svg>
     ),
   },
@@ -34,8 +44,18 @@ const mainServices = [
       "Aplicações web sob medida",
     ],
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" className="h-6 w-6" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M6.429 9.75 2.25 12l4.179 2.25m0-4.5 5.571 3 5.571-3m-11.142 0L2.25 7.5 12 2.25l9.75 5.25-4.179 2.25m0 0L21.75 12l-4.179 2.25m0 0L12 16.5l-5.571-2.25m11.142 0L21.75 16.5 12 21.75 2.25 16.5l4.179-2.25" />
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        className="h-6 w-6"
+        stroke="currentColor"
+        strokeWidth={1.5}
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M6.429 9.75 2.25 12l4.179 2.25m0-4.5 5.571 3 5.571-3m-11.142 0L2.25 7.5 12 2.25l9.75 5.25-4.179 2.25m0 0L21.75 12l-4.179 2.25m0 0L12 16.5l-5.571-2.25m11.142 0L21.75 16.5 12 21.75 2.25 16.5l4.179-2.25"
+        />
       </svg>
     ),
   },
@@ -46,10 +66,24 @@ const supportService = {
   title: "Manutenção e Evolução",
   description:
     "Continuamos evoluindo seu projeto após a entrega — sem abandono, sem surpresas.",
-  items: ["Suporte técnico contínuo", "Melhorias e otimizações", "Novas funcionalidades"],
+  items: [
+    "Suporte técnico contínuo",
+    "Melhorias e otimizações",
+    "Novas funcionalidades",
+  ],
   icon: (
-    <svg viewBox="0 0 24 24" fill="none" className="h-6 w-6" stroke="currentColor" strokeWidth={1.5}>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M11.42 15.17 17.25 21A2.652 2.652 0 0 0 21 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 1 1-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 0 0 4.486-6.336l-3.276 3.277a3.004 3.004 0 0 1-2.25-2.25l3.276-3.276a4.5 4.5 0 0 0-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437 1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008Z" />
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      className="h-6 w-6"
+      stroke="currentColor"
+      strokeWidth={1.5}
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M11.42 15.17 17.25 21A2.652 2.652 0 0 0 21 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 1 1-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 0 0 4.486-6.336l-3.276 3.277a3.004 3.004 0 0 1-2.25-2.25l3.276-3.276a4.5 4.5 0 0 0-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437 1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008Z"
+      />
     </svg>
   ),
 };
@@ -101,7 +135,7 @@ function ServiceCard({
 
       {/* Header */}
       <div className="mb-6 flex items-center gap-4">
-        <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-white/[0.06] bg-surface text-accent transition-all duration-500 group-hover:border-accent/20 group-hover:shadow-[0_0_20px_rgba(255,77,141,0.08)]">
+        <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-white/[0.06] bg-surface text-accent transition-all duration-500 group-hover:border-accent/20 group-hover:shadow-[0_0_20px_rgba(255,77,141,0.08)] group-hover:scale-110">
           {service.icon}
         </div>
         <span className="text-xs font-semibold uppercase tracking-[0.15em] text-muted-dark">
@@ -143,7 +177,7 @@ function SupportCard({ delay }: { delay: number }) {
     >
       {/* Top row: icon + title + number */}
       <div className="mb-5 flex items-center gap-4">
-        <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-white/[0.06] bg-surface text-accent transition-all duration-500 group-hover:border-accent/20 group-hover:shadow-[0_0_20px_rgba(255,77,141,0.08)]">
+        <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-white/[0.06] bg-surface text-accent transition-all duration-500 group-hover:border-accent/20 group-hover:shadow-[0_0_20px_rgba(255,77,141,0.08)]  group-hover:scale-110">
           {supportService.icon}
         </div>
         <div>
@@ -190,8 +224,18 @@ function SEOHighlight({ delay }: { delay: number }) {
         <div className="max-w-md">
           {/* Badge */}
           <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent/[0.08] px-3.5 py-1.5">
-            <svg viewBox="0 0 24 24" fill="none" className="h-4 w-4 text-accent" stroke="currentColor" strokeWidth={1.5}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z" />
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              className="h-4 w-4 text-accent"
+              stroke="currentColor"
+              strokeWidth={1.5}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z"
+              />
             </svg>
             <span className="text-xs font-semibold uppercase tracking-wider text-accent">
               Diferencial
@@ -232,7 +276,11 @@ export default function ServicesSection() {
   const isInView = useInView(ref, { once: true, amount: 0.08 });
 
   return (
-    <section ref={ref} id="services" className="relative overflow-hidden py-32 md:py-44">
+    <section
+      ref={ref}
+      id="services"
+      className="relative overflow-hidden py-32 md:py-44"
+    >
       {/* Subtle top line */}
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
 
@@ -255,8 +303,7 @@ export default function ServicesSection() {
             </div>
 
             <h2 className="text-4xl font-extrabold leading-[1.08] md:text-5xl lg:text-6xl">
-              O que construímos{" "}
-              <span className="text-accent">para você.</span>
+              O que construímos <span className="text-accent">para você.</span>
             </h2>
 
             <p className="mt-6 max-w-lg text-base leading-relaxed text-muted-dark md:text-lg">

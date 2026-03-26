@@ -77,15 +77,16 @@ export default function HeroSection() {
           Da ideia à produção. Sem dor de cabeça.
         </p>
 
-        <h1 className="max-w-2xl text-4xl font-black leading-tight md:text-6xl lg:text-7xl uppercase">
+        <h1 className="max-w-3xl text-3xl font-black leading-tight md:text-5xl lg:text-6xl uppercase">
           O SEU NEGÓCIO
           <br />
-          transformado em <span className="italic text-accent">produto digital.</span>
+          transformado em{" "}
+          <span className="italic text-accent">produto digital.</span>
         </h1>
 
         <p className="mt-6 max-w-lg text-base leading-relaxed text-muted md:text-lg">
-          Projetamos e desenvolvemos produtos digitais com clareza, precisão e performance. 
-          Conectamos a imaginação à execução.
+          Projetamos e desenvolvemos produtos digitais com clareza, precisão e
+          performance. Conectamos a imaginação à execução.
         </p>
 
         <div className="mt-10 flex flex-wrap gap-4">
