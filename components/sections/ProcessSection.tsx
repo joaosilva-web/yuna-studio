@@ -95,7 +95,7 @@ const lineDraw = {
 function ConnectorLine({ index }: { index: number }) {
   return (
     <motion.div
-      className="absolute left-6 top-[4.5rem] -z-10 h-full w-px origin-top bg-gradient-to-b from-accent/40 via-accent/20 to-transparent md:left-8"
+      className="absolute left-6 top-[4.5rem] -z-10 h-full w-px origin-top bg-gradient-to-b from-accent/40 via-accent/20 to-transparent md:left-1/2 md:-translate-x-1/2"
       variants={lineDraw}
       custom={index}
     />
@@ -104,12 +104,10 @@ function ConnectorLine({ index }: { index: number }) {
 
 function StepNumber({ number }: { number: string }) {
   return (
-    <div className="relative flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-accent/20 bg-surface md:h-16 md:w-16">
-      <span className="text-sm font-bold tracking-wider text-accent md:text-base">
+    <div className="relative flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-accent/20 bg-surface transition-all duration-700 group-hover:border-accent/40 group-hover:shadow-[0_0_28px_rgba(255,77,141,0.12)] md:h-16 md:w-16">
+      <span className="text-sm font-bold tracking-wider text-accent transition-all duration-700 group-hover:text-accent group-hover:drop-shadow-[0_0_8px_rgba(255,77,141,0.4)] md:text-base">
         {number}
       </span>
-      {/* glow ring */}
-      <div className="absolute inset-0 rounded-2xl opacity-0 shadow-[0_0_24px_rgba(255,77,141,0.15)] transition-opacity duration-700 group-hover:opacity-100" />
     </div>
   );
 }
@@ -123,51 +121,94 @@ function ProcessStep({
   index: number;
   isLast: boolean;
 }) {
+  const isLeft = index % 2 === 0;
+
   return (
     <motion.div
-      className="group relative pb-16 last:pb-0 md:pb-20"
+      className="group relative pb-16 last:pb-0 md:pb-24"
       variants={fadeUp}
       custom={index}
     >
-      {/* Connector line to next step */}
+      {/* Connector line */}
       {!isLast && <ConnectorLine index={index} />}
 
-      <div className="flex gap-5 md:gap-8">
-        {/* Number node */}
+      {/* Mobile: always left-aligned. Desktop: zigzag grid */}
+      <div className="flex gap-5 md:hidden">
         <StepNumber number={step.number} />
+        <StepContent step={step} />
+      </div>
 
-        {/* Content card */}
-        <div className="flex-1 pt-1">
-          {/* Icon + subtitle */}
-          <div className="mb-4 flex items-center gap-3">
-            <span className="text-accent/70 transition-colors duration-500 group-hover:text-accent">
-              {step.icon}
-            </span>
-            <span className="text-xs font-semibold uppercase tracking-[0.15em] text-accent/60 transition-colors duration-500 group-hover:text-accent">
-              {step.subtitle}
-            </span>
+      {/* Desktop zigzag */}
+      <div className="hidden md:grid md:grid-cols-[1fr_auto_1fr] md:items-start md:gap-10">
+        {/* Left column */}
+        {isLeft ? (
+          <div className="text-right">
+            <StepContent step={step} align="right" />
           </div>
+        ) : (
+          <div />
+        )}
 
-          {/* Title */}
-          <h3 className="text-2xl font-bold tracking-tight transition-colors duration-500 group-hover:text-foreground md:text-3xl">
-            {step.title}
-          </h3>
-
-          {/* Description */}
-          <p className="mt-3 max-w-lg text-sm leading-relaxed text-muted-dark md:text-base md:leading-relaxed">
-            {step.description}
-          </p>
-
-          {/* Emotional tagline */}
-          <p className="mt-5 text-sm italic text-muted transition-colors duration-500 group-hover:text-accent/80">
-            &ldquo;{step.emotion}&rdquo;
-          </p>
-
-          {/* Decorative card surface — appears on hover */}
-          <div className="pointer-events-none absolute -inset-x-4 -inset-y-2 -z-10 rounded-2xl border border-transparent bg-transparent transition-all duration-700 group-hover:border-white/[0.04] group-hover:bg-white/[0.02]" />
+        {/* Center node */}
+        <div className="flex justify-center">
+          <StepNumber number={step.number} />
         </div>
+
+        {/* Right column */}
+        {!isLeft ? (
+          <div>
+            <StepContent step={step} align="left" />
+          </div>
+        ) : (
+          <div />
+        )}
       </div>
     </motion.div>
+  );
+}
+
+function StepContent({
+  step,
+  align = "left",
+}: {
+  step: (typeof steps)[number];
+  align?: "left" | "right";
+}) {
+  const isRight = align === "right";
+
+  return (
+    <div className="flex-1 pt-1">
+      {/* Icon + subtitle */}
+      <div
+        className={`mb-4 flex items-center gap-3 ${isRight ? "justify-end" : ""}`}
+      >
+        <span className="text-accent/70 transition-colors duration-500 group-hover:text-accent">
+          {step.icon}
+        </span>
+        <span className="text-xs font-semibold uppercase tracking-[0.15em] text-accent/60 transition-colors duration-500 group-hover:text-accent">
+          {step.subtitle}
+        </span>
+      </div>
+
+      {/* Title */}
+      <h3 className="text-2xl font-bold tracking-tight text-foreground/80 transition-colors duration-700 group-hover:text-foreground md:text-3xl">
+        {step.title}
+      </h3>
+
+      {/* Description */}
+      <p
+        className={`mt-3 text-sm leading-relaxed text-muted-dark transition-colors duration-700 group-hover:text-muted md:text-base md:leading-relaxed ${
+          isRight ? "ml-auto max-w-lg" : "max-w-lg"
+        }`}
+      >
+        {step.description}
+      </p>
+
+      {/* Emotional tagline */}
+      <p className="mt-5 text-sm italic text-muted-dark transition-colors duration-700 group-hover:text-accent/70">
+        &ldquo;{step.emotion}&rdquo;
+      </p>
+    </div>
   );
 }
 
@@ -178,7 +219,7 @@ export default function ProcessSection() {
   const isInView = useInView(ref, { once: true, amount: 0.1 });
 
   return (
-    <section ref={ref} id="process" className="relative py-32 md:py-44">
+    <section ref={ref} id="process" className="relative overflow-hidden py-32 md:py-44">
       {/* Ambient background glow */}
       <div className="pointer-events-none absolute right-0 top-1/4 h-[600px] w-[600px] translate-x-1/3 rounded-full bg-accent/[0.03] blur-[150px]" />
 

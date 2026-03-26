@@ -41,7 +41,7 @@ export default function DiferencialSection() {
   const ref = useReveal();
 
   return (
-    <section ref={ref} className="relative py-28 md:py-36">
+    <section ref={ref} className="relative overflow-hidden py-28 md:py-36">
       {/* Ambient glow */}
       <div className="pointer-events-none absolute left-0 top-1/3 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-accent/[0.03] blur-[120px]" />
 
