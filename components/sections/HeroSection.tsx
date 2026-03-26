@@ -15,6 +15,13 @@ export default function HeroSection() {
     const video = videoRef.current;
     if (!video) return;
 
+    // Play in slow motion
+    try {
+      video.playbackRate = 0.5;
+    } catch (e) {
+      // ignore if not supported
+    }
+
     // Fallback: if video is already playing, mark as ready
     if (video.readyState >= 3) setVideoReady(true);
 
@@ -62,7 +69,7 @@ export default function HeroSection() {
       />
 
       {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-r from-background via-background/96 to-transparent" />
 
       {/* Content */}
       <Container className="relative z-10 py-32">
@@ -73,8 +80,7 @@ export default function HeroSection() {
         <h1 className="max-w-2xl text-4xl font-black leading-tight md:text-6xl lg:text-7xl uppercase">
           Products that
           <br />
-          actually{" "}
-          <span className="italic text-accent">work.</span>
+          actually <span className="italic text-accent">work.</span>
         </h1>
 
         <p className="mt-6 max-w-lg text-base leading-relaxed text-muted md:text-lg">

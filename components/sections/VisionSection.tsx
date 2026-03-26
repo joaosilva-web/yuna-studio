@@ -15,8 +15,7 @@ const pillars = [
   },
   {
     title: "Escala",
-    description:
-      "Arquitetura preparada para crescer junto com o seu negócio.",
+    description: "Arquitetura preparada para crescer junto com o seu negócio.",
   },
 ];
 
@@ -38,19 +37,28 @@ export default function VisionSection() {
         <h2
           data-reveal
           data-reveal-delay="1"
-          className="max-w-4xl text-4xl font-extrabold leading-[1.1] md:text-6xl lg:text-7xl"
+          className="max-w-3xl text-3xl font-extrabold leading-[1.1] md:text-5xl lg:text-6xl"
         >
-          Transformamos ideias em{" "}
-          <span className="text-foreground/90">produtos digitais reais.</span>
+          TRANSFORMAMOS IDEIAS EM{" "}
+          <span className="text-foreground/90">PRODUTOS DIGITAIS REAIS.</span>
         </h2>
 
         {/* Divider */}
-        <div data-reveal data-reveal-delay="2" className="my-16 h-px w-full bg-white/[0.06] md:my-20" />
+        <div
+          data-reveal
+          data-reveal-delay="2"
+          className="my-16 h-px w-full bg-white/[0.06] md:my-20"
+        />
 
         {/* Pillars grid */}
         <div className="grid gap-10 md:grid-cols-3 md:gap-8">
           {pillars.map((pillar, i) => (
-            <div key={pillar.title} data-reveal data-reveal-delay={`${i + 3}`} className="group">
+            <div
+              key={pillar.title}
+              data-reveal
+              data-reveal-delay={`${i + 3}`}
+              className="group"
+            >
               {/* Top bar */}
               <div className="mb-6 flex items-center gap-0">
                 <span className="h-[3px] w-6 rounded-full bg-accent transition-all duration-500 group-hover:w-10" />

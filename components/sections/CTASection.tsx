@@ -2,6 +2,7 @@
 
 import { useReveal } from "@/lib/useReveal";
 import Container from "../layout/Container";
+import { useRef, useEffect } from "react";
 
 const cards = [
   {
@@ -32,24 +33,42 @@ const cards = [
 
 const cardStyles = {
   accent:
-    "bg-accent text-background transition-all duration-700 ease-out hover:shadow-[0_4px_32px_rgba(255,77,141,0.15)] hover:-translate-y-0.5",
+    "bg-accent text-text transition-all duration-700 ease-out hover:shadow-[0_4px_32px_rgba(255,77,141,0.15)] hover:-translate-y-0.5",
   outline:
     "border border-white/[0.08] bg-card backdrop-blur-md text-foreground transition-all duration-700 ease-out hover:border-white/[0.12] hover:bg-white/[0.04] hover:-translate-y-0.5",
 };
 
 export default function CTASection() {
   const ref = useReveal();
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+
+  useEffect(() => {
+    const v = videoRef.current;
+    if (!v) return;
+    try {
+      v.playbackRate = 0.6;
+    } catch (e) {
+      // ignore if not supported
+    }
+  }, []);
 
   return (
     <section ref={ref} id="contact" className="py-28 md:py-36">
       <Container>
         {/* Bento grid */}
         <div data-reveal className="grid gap-4 md:grid-cols-3">
-          {/* Left — image */}
+          {/* Left — video */}
           <div className="row-span-2 overflow-hidden rounded-2xl border border-white/[0.06]">
-            <div
-              className="h-full min-h-[280px] bg-cover bg-center"
-              style={{ backgroundImage: "url('/images/work-1.svg')" }}
+            <video
+              ref={videoRef}
+              className="h-full min-h-[280px] w-full object-cover bg-center"
+              src="/images/work.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="auto"
+              poster="/images/work-3.png"
             />
           </div>
 
@@ -57,7 +76,9 @@ export default function CTASection() {
           <div
             className={`group rounded-2xl p-7 md:p-8 ${cardStyles[cards[0].variant]}`}
           >
-            <h3 className="text-lg font-bold tracking-tight">{cards[0].title}</h3>
+            <h3 className="text-lg font-bold tracking-tight">
+              {cards[0].title}
+            </h3>
             <p className="mt-3 text-sm leading-relaxed opacity-80">
               {cards[0].description}
             </p>
@@ -67,7 +88,9 @@ export default function CTASection() {
           <div
             className={`group rounded-2xl p-7 md:p-8 ${cardStyles[cards[1].variant]}`}
           >
-            <h3 className="text-lg font-bold tracking-tight">{cards[1].title}</h3>
+            <h3 className="text-lg font-bold tracking-tight">
+              {cards[1].title}
+            </h3>
             <p className="mt-3 text-sm leading-relaxed text-muted-dark">
               {cards[1].description}
             </p>
@@ -77,7 +100,9 @@ export default function CTASection() {
           <div
             className={`group rounded-2xl p-7 md:p-8 ${cardStyles[cards[2].variant]}`}
           >
-            <h3 className="text-lg font-bold tracking-tight">{cards[2].title}</h3>
+            <h3 className="text-lg font-bold tracking-tight">
+              {cards[2].title}
+            </h3>
             <p className="mt-3 text-sm leading-relaxed text-muted-dark">
               {cards[2].description}
             </p>
@@ -87,7 +112,9 @@ export default function CTASection() {
           <div
             className={`group rounded-2xl p-7 md:p-8 ${cardStyles[cards[3].variant]}`}
           >
-            <h3 className="text-lg font-bold tracking-tight">{cards[3].title}</h3>
+            <h3 className="text-lg font-bold tracking-tight">
+              {cards[3].title}
+            </h3>
             <p className="mt-3 text-sm leading-relaxed opacity-80">
               {cards[3].description}
             </p>
@@ -95,7 +122,11 @@ export default function CTASection() {
         </div>
 
         {/* Headline + arrow */}
-        <div data-reveal data-reveal-delay="1" className="mt-20 flex items-end justify-between">
+        <div
+          data-reveal
+          data-reveal-delay="1"
+          className="mt-20 flex items-end justify-between"
+        >
           <h2 className="text-4xl font-extrabold uppercase leading-none md:text-6xl lg:text-7xl">
             Vamos tirar sua
             <br />

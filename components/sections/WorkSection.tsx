@@ -25,7 +25,7 @@ export default function WorkSection() {
     <section ref={ref} id="work" className="py-28 md:py-36">
       <Container>
         <div data-reveal>
-          <SectionHeader label="Portfolio" title="Selected Work" />
+          <SectionHeader label="Portfolio" title="SELECTED WORK" />
         </div>
 
         <div className="grid gap-6 md:grid-cols-2">
@@ -47,7 +47,9 @@ export default function WorkSection() {
               </div>
 
               <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-7">
-                <h3 className="text-lg font-semibold tracking-tight">{project.title}</h3>
+                <h3 className="text-lg font-semibold tracking-tight">
+                  {project.title}
+                </h3>
                 <p className="text-sm uppercase tracking-wider text-muted-dark">
                   {project.subtitle}
                 </p>
