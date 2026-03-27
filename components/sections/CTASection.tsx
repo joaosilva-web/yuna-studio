@@ -1,6 +1,6 @@
 "use client";
 
-import { useReveal } from "@/lib/useReveal";
+import Reveal from "../ui/Reveal";
 import Container from "../layout/Container";
 import { useRef, useEffect } from "react";
 
@@ -39,7 +39,7 @@ const cardStyles = {
 };
 
 export default function CTASection() {
-  const ref = useReveal();
+  
   const videoRef = useRef<HTMLVideoElement | null>(null);
 
   useEffect(() => {
@@ -53,10 +53,10 @@ export default function CTASection() {
   }, []);
 
   return (
-    <section ref={ref} id="contact" className="py-28 md:py-36">
+    <section id="contact" className="py-28 md:py-36">
       <Container>
         {/* Bento grid */}
-        <div data-reveal className="grid gap-4 md:grid-cols-3">
+        <Reveal className="grid gap-4 md:grid-cols-3">
           {/* Left — video */}
           <div className="row-span-2 overflow-hidden rounded-2xl border border-white/[0.06]">
             <video
@@ -119,14 +119,10 @@ export default function CTASection() {
               {cards[3].description}
             </p>
           </div>
-        </div>
+        </Reveal>
 
         {/* Headline + arrow */}
-        <div
-          data-reveal
-          data-reveal-delay="1"
-          className="mt-20 flex items-end justify-between"
-        >
+        <Reveal delay={0.1} className="mt-20 flex items-end justify-between">
           <h2 className="text-4xl font-extrabold uppercase leading-none md:text-6xl lg:text-7xl">
             Vamos tirar sua
             <br />
@@ -169,7 +165,7 @@ export default function CTASection() {
               </svg>
             </span>
           </a>
-        </div>
+        </Reveal>
       </Container>
     </section>
   );

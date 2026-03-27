@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useReveal } from "@/lib/useReveal";
+import Reveal from "../ui/Reveal";
 import Container from "../layout/Container";
 import SectionHeader from "../ui/SectionHeader";
 
@@ -19,21 +19,18 @@ const projects = [
 ];
 
 export default function WorkSection() {
-  const ref = useReveal();
-
   return (
-    <section ref={ref} id="work" className="py-28 md:py-36">
+    <section id="work" className="py-28 md:py-36">
       <Container>
-        <div data-reveal>
+        <Reveal>
           <SectionHeader label="Portfolio" title="SELECTED WORK" />
-        </div>
+        </Reveal>
 
         <div className="grid gap-6 md:grid-cols-2">
           {projects.map((project, i) => (
-            <div
+            <Reveal
               key={project.title}
-              data-reveal
-              data-reveal-delay={`${i + 1}`}
+              delay={(i + 1) * 0.1}
               className="group relative overflow-hidden rounded-2xl border border-white/[0.06] transition-all duration-500 hover:border-white/[0.12] hover:shadow-[0_8px_40px_rgba(0,0,0,0.3)]"
             >
               <div className="aspect-[4/3] w-full overflow-hidden">
@@ -54,7 +51,7 @@ export default function WorkSection() {
                   {project.subtitle}
                 </p>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </Container>

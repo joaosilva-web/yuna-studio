@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import Reveal from "../ui/Reveal";
 import Container from "../layout/Container";
 
 /* ─── Data ──────────────────────────────────────────────────── */
@@ -101,34 +101,20 @@ const seoHighlight = {
 
 /* ─── Animation ─────────────────────────────────────────────── */
 
-const ease = [0.16, 1, 0.3, 1] as const;
-
-const fadeUp = (delay = 0) => ({
-  hidden: { opacity: 0, y: 32 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { delay, duration: 0.7, ease },
-  },
-});
-
 /* ─── Sub-components ────────────────────────────────────────── */
 
 function ServiceCard({
   service,
-  delay,
   featured = false,
 }: {
   service: (typeof mainServices)[number];
-  delay: number;
   featured?: boolean;
 }) {
   return (
-    <motion.div
+    <div
       className={`group relative overflow-hidden rounded-2xl border border-white/[0.06] bg-white/[0.02] backdrop-blur-md transition-all duration-700 ease-out hover:border-white/[0.1] hover:bg-white/[0.04] hover:shadow-[0_8px_48px_rgba(255,77,141,0.06)] ${
         featured ? "p-8 md:p-10" : "p-7 md:p-9"
       }`}
-      variants={fadeUp(delay)}
     >
       {/* Glow on hover */}
       <div className="pointer-events-none absolute -right-20 -top-20 h-40 w-40 rounded-full bg-accent/[0.04] opacity-0 blur-[80px] transition-opacity duration-700 group-hover:opacity-100" />
@@ -165,16 +151,13 @@ function ServiceCard({
           </li>
         ))}
       </ul>
-    </motion.div>
+    </div>
   );
 }
 
-function SupportCard({ delay }: { delay: number }) {
+function SupportCard() {
   return (
-    <motion.div
-      className="group relative overflow-hidden rounded-2xl border border-white/[0.06] bg-white/[0.02] p-7 backdrop-blur-md transition-all duration-700 ease-out hover:border-white/[0.1] hover:bg-white/[0.04] md:p-8"
-      variants={fadeUp(delay)}
-    >
+    <div className="group relative overflow-hidden rounded-2xl border border-white/[0.06] bg-white/[0.02] p-7 backdrop-blur-md transition-all duration-700 ease-out hover:border-white/[0.1] hover:bg-white/[0.04] md:p-8">
       {/* Top row: icon + title + number */}
       <div className="mb-5 flex items-center gap-4">
         <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-white/[0.06] bg-surface text-accent transition-all duration-500 group-hover:border-accent/20 group-hover:shadow-[0_0_20px_rgba(255,77,141,0.08)]  group-hover:scale-110">
@@ -207,16 +190,13 @@ function SupportCard({ delay }: { delay: number }) {
           ))}
         </ul>
       </div>
-    </motion.div>
+    </div>
   );
 }
 
-function SEOHighlight({ delay }: { delay: number }) {
+function SEOHighlight() {
   return (
-    <motion.div
-      className="group relative overflow-hidden rounded-2xl border border-accent/20 bg-accent/[0.04] p-8 backdrop-blur-md transition-all duration-700 ease-out hover:border-accent/30 hover:bg-accent/[0.06] hover:shadow-[0_8px_48px_rgba(255,77,141,0.08)] md:p-10"
-      variants={fadeUp(delay)}
-    >
+    <div className="group relative overflow-hidden rounded-2xl border border-accent/20 bg-accent/[0.04] p-8 backdrop-blur-md transition-all duration-700 ease-out hover:border-accent/30 hover:bg-accent/[0.06] hover:shadow-[0_8px_48px_rgba(255,77,141,0.08)] md:p-10">
       {/* Accent glow */}
       <div className="pointer-events-none absolute -left-16 -top-16 h-48 w-48 rounded-full bg-accent/[0.06] blur-[100px]" />
 
@@ -265,7 +245,7 @@ function SEOHighlight({ delay }: { delay: number }) {
           ))}
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }
 
@@ -273,14 +253,9 @@ function SEOHighlight({ delay }: { delay: number }) {
 
 export default function ServicesSection() {
   const ref = useRef<HTMLElement>(null);
-  const isInView = useInView(ref, { once: true, amount: 0.08 });
 
   return (
-    <section
-      ref={ref}
-      id="services"
-      className="relative overflow-hidden py-32 md:py-44"
-    >
+    <section id="services" ref={ref} className="relative overflow-hidden py-32 md:py-44">
       {/* Subtle top line */}
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
 
@@ -288,48 +263,47 @@ export default function ServicesSection() {
       <div className="pointer-events-none absolute left-1/2 top-0 h-[500px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/[0.02] blur-[150px]" />
 
       <Container>
-        <motion.div
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          className="space-y-6"
-        >
+        <div className="space-y-6">
           {/* Header */}
-          <motion.div className="mb-16 max-w-2xl md:mb-24" variants={fadeUp(0)}>
-            <div className="mb-5 flex items-center gap-3">
-              <span className="h-px w-8 bg-accent" />
-              <span className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
-                Serviços
-              </span>
+          <Reveal delay={0}>
+            <div className="mb-16 max-w-2xl md:mb-24">
+              <div className="mb-5 flex items-center gap-3">
+                <span className="h-px w-8 bg-accent" />
+                <span className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
+                  Serviços
+                </span>
+              </div>
+
+              <h2 className="text-4xl font-extrabold leading-[1.08] md:text-5xl lg:text-6xl">
+                O que construímos <span className="text-accent">para você.</span>
+              </h2>
+
+              <p className="mt-6 max-w-lg text-base leading-relaxed text-muted-dark md:text-lg">
+                Da estratégia ao código, entregamos soluções digitais que resolvem
+                problemas reais e geram resultado mensurável.
+              </p>
             </div>
-
-            <h2 className="text-4xl font-extrabold leading-[1.08] md:text-5xl lg:text-6xl">
-              O que construímos <span className="text-accent">para você.</span>
-            </h2>
-
-            <p className="mt-6 max-w-lg text-base leading-relaxed text-muted-dark md:text-lg">
-              Da estratégia ao código, entregamos soluções digitais que resolvem
-              problemas reais e geram resultado mensurável.
-            </p>
-          </motion.div>
+          </Reveal>
 
           {/* Main services — 2-column */}
           <div className="grid gap-5 md:grid-cols-2">
             {mainServices.map((service, i) => (
-              <ServiceCard
-                key={service.number}
-                service={service}
-                delay={0.1 + i * 0.12}
-                featured
-              />
+              <Reveal key={service.number} delay={0.1 + i * 0.12}>
+                <ServiceCard service={service} featured />
+              </Reveal>
             ))}
           </div>
 
           {/* Support service — full width */}
-          <SupportCard delay={0.35} />
+          <Reveal delay={0.35}>
+            <SupportCard />
+          </Reveal>
 
           {/* SEO Highlight — full width accent */}
-          <SEOHighlight delay={0.45} />
-        </motion.div>
+          <Reveal delay={0.45}>
+            <SEOHighlight />
+          </Reveal>
+        </div>
       </Container>
     </section>
   );

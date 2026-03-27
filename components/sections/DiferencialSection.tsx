@@ -1,6 +1,6 @@
 "use client";
 
-import { useReveal } from "@/lib/useReveal";
+import Reveal from "../ui/Reveal";
 import Container from "../layout/Container";
 import Card from "../ui/Card";
 
@@ -68,17 +68,15 @@ const pillars = [
 ];
 
 export default function DiferencialSection() {
-  const ref = useReveal();
-
   return (
-    <section ref={ref} className="relative overflow-hidden py-28 md:py-36">
+    <section className="relative overflow-hidden py-28 md:py-36">
       {/* Ambient glow */}
       <div className="pointer-events-none absolute left-0 top-1/3 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-accent/[0.03] blur-[120px]" />
 
       <Container>
         <div className="grid items-start gap-16 lg:grid-cols-2">
           {/* Left column */}
-          <div data-reveal>
+          <Reveal>
             <h2 className="text-4xl font-black leading-none text-accent md:text-6xl lg:text-7xl uppercase">
               Nosso
               <br />
@@ -97,11 +95,7 @@ export default function DiferencialSection() {
             </p>
 
             {/* Featured card */}
-            <div
-              data-reveal
-              data-reveal-delay="2"
-              className="group relative mt-12 overflow-hidden rounded-2xl bg-accent p-8 transition-all duration-500 hover:shadow-[0_8px_48px_rgba(255,77,141,0.2)]"
-            >
+            <Reveal delay={0.2} className="group relative mt-12 overflow-hidden rounded-2xl bg-accent p-8 transition-all duration-500 hover:shadow-[0_8px_48px_rgba(255,77,141,0.2)]">
               <span className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 select-none text-7xl font-bold uppercase leading-none text-white/[0.08] md:text-8xl transition-transform duration-700 group-hover:scale-110">
                 Yuna
               </span>
@@ -154,17 +148,13 @@ export default function DiferencialSection() {
                   </span>
                 </a>
               </div>
-            </div>
-          </div>
+            </Reveal>
+          </Reveal>
 
           {/* Right column — pillar cards */}
           <div className="flex flex-col gap-4 lg:pt-16">
             {pillars.map((pillar, i) => (
-              <div
-                key={pillar.title}
-                data-reveal
-                data-reveal-delay={`${i + 1}`}
-              >
+              <Reveal key={pillar.title} delay={(i + 1) * 0.1}>
                 <Card className="group flex items-start gap-5">
                   <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-white/[0.06] bg-surface text-accent transition-all duration-500 group-hover:border-accent/20 group-hover:shadow-[0_0_16px_rgba(255,77,141,0.08)] group-hover:scale-110">
                     {pillar.icon}
@@ -178,7 +168,7 @@ export default function DiferencialSection() {
                     </p>
                   </div>
                 </Card>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useReveal } from "@/lib/useReveal";
+import Reveal from "../ui/Reveal";
 import Container from "../layout/Container";
 
 const pillars = [
@@ -20,45 +20,30 @@ const pillars = [
 ];
 
 export default function VisionSection() {
-  const ref = useReveal();
-
   return (
-    <section ref={ref} className="py-28 md:py-36">
+    <section className="py-28 md:py-36">
       <Container>
         {/* Label */}
-        <div data-reveal className="mb-6 flex items-center gap-3">
+        <Reveal className="mb-6 flex items-center gap-3">
           <span className="h-px w-8 bg-accent" />
           <span className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
             Visão
           </span>
-        </div>
+        </Reveal>
 
         {/* Headline */}
-        <h2
-          data-reveal
-          data-reveal-delay="1"
-          className="max-w-3xl text-3xl font-extrabold leading-[1.1] md:text-5xl lg:text-6xl uppercase"
-        >
+        <Reveal delay={0.1} className="max-w-3xl text-3xl font-extrabold leading-[1.1] md:text-5xl lg:text-6xl uppercase">
           Soluções digitais pensadas para o {" "}
           <span className="text-accent">seu negócio.</span>
-        </h2>
+        </Reveal>
 
         {/* Divider */}
-        <div
-          data-reveal
-          data-reveal-delay="2"
-          className="my-16 h-px w-full bg-white/[0.06] md:my-20"
-        />
+        <Reveal delay={0.2} className="my-16 h-px w-full bg-white/[0.06] md:my-20" />
 
         {/* Pillars grid */}
         <div className="grid gap-10 md:grid-cols-3 md:gap-8">
           {pillars.map((pillar, i) => (
-            <div
-              key={pillar.title}
-              data-reveal
-              data-reveal-delay={`${i + 3}`}
-              className="group"
-            >
+            <Reveal key={pillar.title} delay={(i + 3) * 0.1} className="group">
               {/* Top bar */}
               <div className="mb-6 flex items-center gap-0">
                 <span className="h-[3px] w-6 rounded-full bg-accent transition-all duration-500 group-hover:w-10" />
@@ -72,7 +57,7 @@ export default function VisionSection() {
               <p className="mt-3 text-sm leading-relaxed text-muted-dark">
                 {pillar.description}
               </p>
-            </div>
+            </Reveal>
           ))}
         </div>
       </Container>

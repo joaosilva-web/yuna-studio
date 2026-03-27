@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import Container from "../layout/Container";
+import Reveal from "../ui/Reveal";
 
 /* ─── Data ──────────────────────────────────────────────────── */
 
@@ -92,12 +93,13 @@ const lineDraw = {
 
 /* ─── Sub-components ────────────────────────────────────────── */
 
-function ConnectorLine({ index }: { index: number }) {
+function ConnectorLine({ index, isVisible }: { index: number; isVisible: boolean }) {
   return (
     <motion.div
       className="absolute left-6 top-[4.5rem] -z-10 h-full w-px origin-top bg-gradient-to-b from-accent/40 via-accent/20 to-transparent md:left-1/2 md:-translate-x-1/2"
       variants={lineDraw}
       custom={index}
+      animate={isVisible ? "visible" : "hidden"}
     />
   );
 }
@@ -116,21 +118,19 @@ function ProcessStep({
   step,
   index,
   isLast,
+  isVisible,
 }: {
   step: (typeof steps)[number];
   index: number;
   isLast: boolean;
+  isVisible: boolean;
 }) {
   const isLeft = index % 2 === 0;
 
   return (
-    <motion.div
-      className="group relative pb-16 last:pb-0 md:pb-24"
-      variants={fadeUp}
-      custom={index}
-    >
+    <div className="group relative pb-16 last:pb-0 md:pb-24">
       {/* Connector line */}
-      {!isLast && <ConnectorLine index={index} />}
+      {!isLast && <ConnectorLine index={index} isVisible={isVisible} />}
 
       {/* Mobile: always left-aligned. Desktop: zigzag grid */}
       <div className="flex gap-5 md:hidden">
@@ -163,7 +163,7 @@ function ProcessStep({
           <div />
         )}
       </div>
-    </motion.div>
+    </div>
   );
 }
 
@@ -225,46 +225,41 @@ export default function ProcessSection() {
 
       <Container>
         {/* Header */}
-        <motion.div
-          className="mb-20 max-w-2xl md:mb-28"
-          initial={{ opacity: 0, y: 40 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7, ease }}
-        >
-          <div className="mb-5 flex items-center gap-3">
-            <span className="h-px w-8 bg-accent" />
-            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
-              Processo
-            </span>
+        <Reveal>
+          <div className="mb-20 max-w-2xl md:mb-28">
+            <div className="mb-5 flex items-center gap-3">
+              <span className="h-px w-8 bg-accent" />
+              <span className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
+                Processo
+              </span>
+            </div>
+
+            <h2 className="text-4xl font-extrabold leading-[1.08] md:text-5xl lg:text-6xl">
+              Da sua visão à{" "}
+              <span className="text-accent">realidade digital.</span>
+            </h2>
+
+            <p className="mt-6 text-base leading-relaxed text-muted-dark md:text-lg">
+              Cada etapa do nosso processo foi desenhada para que você se sinta
+              seguro, acompanhado e confiante — do primeiro briefing até o
+              lançamento e além.
+            </p>
           </div>
-
-          <h2 className="text-4xl font-extrabold leading-[1.08] md:text-5xl lg:text-6xl">
-            Da sua visão à{" "}
-            <span className="text-accent">realidade digital.</span>
-          </h2>
-
-          <p className="mt-6 text-base leading-relaxed text-muted-dark md:text-lg">
-            Cada etapa do nosso processo foi desenhada para que você se sinta
-            seguro, acompanhado e confiante — do primeiro briefing até o
-            lançamento e além.
-          </p>
-        </motion.div>
+        </Reveal>
 
         {/* Timeline flow */}
-        <motion.div
-          className="relative"
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-        >
+        <div className="relative">
           {steps.map((step, i) => (
-            <ProcessStep
-              key={step.number}
-              step={step}
-              index={i}
-              isLast={i === steps.length - 1}
-            />
+            <Reveal key={step.number} delay={0.1 + i * 0.12}>
+              <ProcessStep
+                step={step}
+                index={i}
+                isLast={i === steps.length - 1}
+                isVisible={isInView}
+              />
+            </Reveal>
           ))}
-        </motion.div>
+        </div>
       </Container>
     </section>
   );

@@ -2,7 +2,8 @@
 
 import { useRef, useState } from "react";
 import Image from "next/image";
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
+import Reveal from "../ui/Reveal";
 import Container from "../layout/Container";
 
 /* ─── Data ──────────────────────────────────────────────────── */
@@ -77,15 +78,6 @@ const steps = [
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
-const fadeUp = (delay = 0) => ({
-  hidden: { opacity: 0, y: 32 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { delay, duration: 0.7, ease },
-  },
-});
-
 /* ─── Sub-components ────────────────────────────────────────── */
 
 function ConnectorSegment({
@@ -116,7 +108,6 @@ function MethodStep({
   isLast,
   activeIndex,
   onHover,
-  delay,
 }: {
   step: (typeof steps)[number];
   index: number;
@@ -124,15 +115,9 @@ function MethodStep({
   isLast: boolean;
   activeIndex: number | null;
   onHover: (i: number | null) => void;
-  delay: number;
 }) {
   return (
-    <motion.div
-      className="group"
-      variants={fadeUp(delay)}
-      onMouseEnter={() => onHover(index)}
-      onMouseLeave={() => onHover(null)}
-    >
+    <div className="group" onMouseEnter={() => onHover(index)} onMouseLeave={() => onHover(null)}>
       <div className="flex gap-4">
         {/* Left column: icon */}
         <div className="flex flex-col items-center">
@@ -190,7 +175,7 @@ function MethodStep({
           </div>
         </div>
       )}
-    </motion.div>
+    </div>
   );
 }
 
@@ -198,15 +183,14 @@ function MethodStep({
 
 export default function MethodSection() {
   const ref = useRef<HTMLElement>(null);
-  const isInView = useInView(ref, { once: true, amount: 0.15 });
   const [activeStep, setActiveStep] = useState<number | null>(null);
 
   return (
     <section ref={ref} className="py-24 md:py-36" id="method">
       <Container>
-        <motion.div initial="hidden" animate={isInView ? "visible" : "hidden"}>
-          {/* Header */}
-          <motion.div className="mb-12 md:mb-16" variants={fadeUp(0)}>
+        {/* Header */}
+        <Reveal>
+          <div className="mb-12 md:mb-16">
             <div className="mb-5 flex items-center gap-3">
               <span className="h-px w-8 bg-accent" />
               <span className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
@@ -222,31 +206,30 @@ export default function MethodSection() {
               Um processo claro, colaborativo e sem surpresas — do entendimento
               à entrega final.
             </p>
-          </motion.div>
+          </div>
+        </Reveal>
 
-          {/* Grid: steps + image */}
-          <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
-            {/* Left — steps with timeline */}
-            <div>
-              {steps.map((step, i) => (
+        {/* Grid: steps + image */}
+        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+          {/* Left — steps with timeline */}
+          <div>
+            {steps.map((step, i) => (
+              <Reveal key={step.number} delay={0.1 + i * 0.12}>
                 <MethodStep
-                  key={step.number}
                   step={step}
                   index={i}
                   isActive={activeStep === i}
                   isLast={i === steps.length - 1}
                   activeIndex={activeStep}
                   onHover={setActiveStep}
-                  delay={0.1 + i * 0.12}
                 />
-              ))}
-            </div>
+              </Reveal>
+            ))}
+          </div>
 
-            {/* Right — image with overlay */}
-            <motion.div
-              className="relative overflow-hidden rounded-2xl border border-white/[0.06]"
-              variants={fadeUp(0.35)}
-            >
+          {/* Right — image with overlay */}
+          <Reveal delay={0.35}>
+            <div className="relative overflow-hidden rounded-2xl border border-white/[0.06]">
               <Image
                 src="/images/method.png"
                 alt="Método Yuna"
@@ -261,15 +244,15 @@ export default function MethodSection() {
               {/* Bottom label */}
               <div className="absolute bottom-0 inset-x-0 p-6 md:p-8">
                 <span className="text-xs font-semibold uppercase tracking-[0.15em] text-accent/80">
-                  Yuna Method
+                  Yuna
                 </span>
                 <p className="mt-1 text-sm text-foreground/60">
                   Do entendimento à entrega, lado a lado.
                 </p>
               </div>
-            </motion.div>
-          </div>
-        </motion.div>
+            </div>
+          </Reveal>
+        </div>
       </Container>
     </section>
   );
