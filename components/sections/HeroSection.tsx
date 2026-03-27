@@ -11,12 +11,12 @@ const spring = {
   type: "spring",
   stiffness: 80,
   damping: 20,
-};
+} as const;
 
 const fastExit = {
   duration: 0.35,
   ease: [0.4, 0, 1, 1],
-};
+} as const;
 
 const items = {
   eyebrow: {
@@ -106,7 +106,10 @@ export default function HeroSection() {
   const isInView = useInView(sectionRef, { amount: 0.2 });
 
   useEffect(() => {
-    if (isInView) setHasEntered(true);
+    if (isInView) {
+      const id = requestAnimationFrame(() => setHasEntered(true));
+      return () => cancelAnimationFrame(id);
+    }
   }, [isInView]);
 
   useEffect(() => {
@@ -116,7 +119,12 @@ export default function HeroSection() {
     try {
       video.playbackRate = 0.5;
     } catch (e) {}
-    if (video.readyState >= 3) setVideoReady(true);
+
+    if (video.readyState >= 3) {
+      const id = requestAnimationFrame(() => setVideoReady(true));
+      // ensure cleanup in case effect re-runs
+      return () => cancelAnimationFrame(id);
+    }
 
     const handleTimeUpdate = () => {
       if (!videoReady && video.readyState >= 3) setVideoReady(true);
