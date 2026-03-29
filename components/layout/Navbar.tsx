@@ -58,7 +58,7 @@ export default function Navbar() {
         <button
           onClick={() => setOpen((v) => !v)}
           aria-label={open ? "Fechar menu" : "Abrir menu"}
-          className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/[0.08] text-muted-dark transition-colors duration-200 hover:text-foreground md:hidden cursor-pointer"
+          className="flex h-11 w-11 items-center justify-center rounded-lg border border-white/[0.08] text-muted-dark transition-colors duration-200 hover:text-foreground md:hidden cursor-pointer"
         >
           <svg
             width="16"
