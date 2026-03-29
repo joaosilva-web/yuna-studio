@@ -28,12 +28,12 @@ const items = {
   title1: {
     enter: { opacity: 1, y: 0 },
     exit: { opacity: 0, y: 32 },
-    initial: { opacity: 0, y: 40 },
+    initial: { opacity: 1, y: 40 },
   },
   title2: {
     enter: { opacity: 1, y: 0 },
     exit: { opacity: 0, y: -32 },
-    initial: { opacity: 0, y: -40 },
+    initial: { opacity: 1, y: -40 },
   },
   accent: {
     enter: { opacity: 1, x: 0, filter: "blur(0px)" },
@@ -53,12 +53,12 @@ const items = {
 };
 
 const staggerDelays: Record<string, number> = {
-  eyebrow: 0.2,
-  title1: 0.25,
-  title2: 0.35,
-  accent: 0.45,
-  body: 0.55,
-  buttons: 0.65,
+  eyebrow: 0.05,
+  title1: 0.05,
+  title2: 0.1,
+  accent: 0.15,
+  body: 0.2,
+  buttons: 0.25,
 };
 
 function AnimatedItem({
