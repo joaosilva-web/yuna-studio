@@ -1,10 +1,11 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import Reveal from "../ui/Reveal";
 import Container from "../layout/Container";
+import { ease } from "@/lib/animations";
 
 /* ─── Data ──────────────────────────────────────────────────── */
 
@@ -75,8 +76,6 @@ const steps = [
 ];
 
 /* ─── Animation ─────────────────────────────────────────────── */
-
-const ease = [0.16, 1, 0.3, 1] as const;
 
 /* ─── Sub-components ────────────────────────────────────────── */
 
@@ -182,11 +181,10 @@ function MethodStep({
 /* ─── Main section ──────────────────────────────────────────── */
 
 export default function MethodSection() {
-  const ref = useRef<HTMLElement>(null);
   const [activeStep, setActiveStep] = useState<number | null>(null);
 
   return (
-    <section ref={ref} className="py-24 md:py-36" id="method">
+    <section className="py-24 md:py-36" id="method">
       <Container>
         {/* Header */}
         <Reveal>

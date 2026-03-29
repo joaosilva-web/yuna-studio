@@ -4,11 +4,9 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import type { Project } from "./data";
 
-const heightMap = {
+const heightMap: Partial<Record<Project["height"], string>> = {
   tall: "row-span-2",
-  medium: "row-span-1",
-  short: "row-span-1",
-} as const;
+};
 
 const aspectMap = {
   tall: "aspect-[3/4]",
@@ -26,7 +24,7 @@ interface PortfolioCardProps {
 export default function PortfolioCard({ project, index, uniform, onClick }: PortfolioCardProps) {
   return (
     <motion.div
-      className={`group relative cursor-pointer overflow-hidden rounded-2xl border border-white/[0.06] ${uniform ? "" : heightMap[project.height]}`}
+      className={`group relative cursor-pointer overflow-hidden rounded-2xl border border-white/[0.06] ${uniform ? "" : (heightMap[project.height] ?? "row-span-1")}`}
       initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{

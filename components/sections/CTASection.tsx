@@ -1,8 +1,9 @@
 "use client";
 
+import { useRef, useEffect } from "react";
 import Reveal from "../ui/Reveal";
 import Container from "../layout/Container";
-import { useRef, useEffect } from "react";
+import ArrowButton from "../ui/ArrowButton";
 
 const cards = [
   {
@@ -32,14 +33,19 @@ const cards = [
 ];
 
 const cardStyles = {
-  accent:
-    "bg-accent text-text transition-all duration-700 ease-out hover:shadow-[0_4px_32px_rgba(255,77,141,0.15)] hover:-translate-y-0.5",
-  outline:
-    "border border-white/[0.08] bg-card backdrop-blur-md text-foreground transition-all duration-700 ease-out hover:border-white/[0.12] hover:bg-white/[0.04] hover:-translate-y-0.5",
+  accent: {
+    wrapper:
+      "bg-accent text-text transition-all duration-700 ease-out hover:shadow-[0_4px_32px_rgba(255,77,141,0.15)] hover:-translate-y-0.5",
+    description: "opacity-80",
+  },
+  outline: {
+    wrapper:
+      "border border-white/[0.08] bg-card backdrop-blur-md text-foreground transition-all duration-700 ease-out hover:border-white/[0.12] hover:bg-white/[0.04] hover:-translate-y-0.5",
+    description: "text-muted-dark",
+  },
 };
 
 export default function CTASection() {
-  
   const videoRef = useRef<HTMLVideoElement | null>(null);
 
   useEffect(() => {
@@ -72,53 +78,20 @@ export default function CTASection() {
             />
           </div>
 
-          {/* Top center — Especialidade */}
-          <div
-            className={`group rounded-2xl p-7 md:p-8 ${cardStyles[cards[0].variant]}`}
-          >
-            <h3 className="text-lg font-bold tracking-tight">
-              {cards[0].title}
-            </h3>
-            <p className="mt-3 text-sm leading-relaxed opacity-80">
-              {cards[0].description}
-            </p>
-          </div>
-
-          {/* Top right — Jornada Digital */}
-          <div
-            className={`group rounded-2xl p-7 md:p-8 ${cardStyles[cards[1].variant]}`}
-          >
-            <h3 className="text-lg font-bold tracking-tight">
-              {cards[1].title}
-            </h3>
-            <p className="mt-3 text-sm leading-relaxed text-muted-dark">
-              {cards[1].description}
-            </p>
-          </div>
-
-          {/* Bottom center — Protagonismo */}
-          <div
-            className={`group rounded-2xl p-7 md:p-8 ${cardStyles[cards[2].variant]}`}
-          >
-            <h3 className="text-lg font-bold tracking-tight">
-              {cards[2].title}
-            </h3>
-            <p className="mt-3 text-sm leading-relaxed text-muted-dark">
-              {cards[2].description}
-            </p>
-          </div>
-
-          {/* Bottom right — A Hora é Agora */}
-          <div
-            className={`group rounded-2xl p-7 md:p-8 ${cardStyles[cards[3].variant]}`}
-          >
-            <h3 className="text-lg font-bold tracking-tight">
-              {cards[3].title}
-            </h3>
-            <p className="mt-3 text-sm leading-relaxed opacity-80">
-              {cards[3].description}
-            </p>
-          </div>
+          {cards.map((card) => {
+            const styles = cardStyles[card.variant];
+            return (
+              <div
+                key={card.title}
+                className={`group rounded-2xl p-7 md:p-8 ${styles.wrapper}`}
+              >
+                <h3 className="text-lg font-bold tracking-tight">{card.title}</h3>
+                <p className={`mt-3 text-sm leading-relaxed ${styles.description}`}>
+                  {card.description}
+                </p>
+              </div>
+            );
+          })}
         </Reveal>
 
         {/* Headline + arrow */}
@@ -129,42 +102,7 @@ export default function CTASection() {
             <span className="italic text-accent">ideia do papel</span>
           </h2>
 
-          <a
-            href="#"
-            className="group mb-1 flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-white/[0.12] transition-all duration-500 hover:scale-110 hover:border-accent hover:shadow-[0_0_24px_rgba(255,77,141,0.15)]"
-          >
-            <span className="relative flex h-10 w-10 items-center justify-center">
-              {/* Front arrow: moves outwards on hover (tangent) */}
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                className="absolute z-10 h-5 w-5 text-foreground transition-transform duration-500 ease-out group-hover:translate-x-3 group-hover:-translate-y-3 group-hover:text-accent"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"
-                />
-              </svg>
-
-              {/* Back arrow: fades in behind as front moves */}
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                className="absolute z-0 h-5 w-5 text-foreground opacity-0 transition-all duration-500 ease-out group-hover:opacity-100 group-hover:translate-x-1.5 group-hover:-translate-y-1.5"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"
-                />
-              </svg>
-            </span>
-          </a>
+          <ArrowButton href="#" />
         </Reveal>
       </Container>
     </section>

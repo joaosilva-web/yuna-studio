@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import Container from "./Container";
 
 const socialLinks = [
@@ -51,10 +52,12 @@ export default function Footer() {
           {/* Brand column */}
           <div className="flex flex-col gap-5">
             <Link href="/" className="group flex items-center gap-3 w-fit">
-              <img
+              <Image
                 src="/yuna-logo.svg"
                 alt="Yuna Studio"
-                className="h-7 w-7 transition-opacity duration-300 group-hover:opacity-70"
+                width={28}
+                height={28}
+                className="transition-opacity duration-300 group-hover:opacity-70"
               />
               <span className="text-sm font-bold tracking-[0.18em] uppercase">
                 Yuna Studio

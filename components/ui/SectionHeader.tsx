@@ -15,7 +15,7 @@ export default function SectionHeader({
     <div className={`mb-20 ${centered ? "text-center" : ""}`}>
       {label && (
         <div className={`mb-5 flex items-center gap-3 ${centered ? "justify-center" : ""}`}>
-          <span className="h-px w-6 bg-accent" />
+          <span className="h-px w-8 bg-accent" />
           <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-accent">
             {label}
           </p>

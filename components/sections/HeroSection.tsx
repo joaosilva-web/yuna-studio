@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useInView, useAnimation } from "framer-motion";
 import Container from "../layout/Container";
 import Button from "../ui/Button";
+import { WHATSAPP_URL } from "@/lib/config";
 
 const FADE_MS = 800;
 
@@ -220,7 +221,7 @@ export default function HeroSection() {
         <AnimatedItem name="buttons" {...shared}>
           <div className="mt-10 flex flex-wrap gap-4">
             <a
-              href="https://wa.me/5511993495934?text=Ol%C3%A1%20Yuna%20Studio!%20Vim%20pelo%20site%20e%20gostaria%20de%20conversar%20sobre%20valores%20e%20ideias%20do%20meu%20neg%C3%B3cio."
+              href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
             >

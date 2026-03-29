@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import Container from "../layout/Container";
 import Reveal from "../ui/Reveal";
+import { ease } from "@/lib/animations";
 
 /* ─── Data ──────────────────────────────────────────────────── */
 
@@ -63,8 +64,6 @@ const steps = [
 ];
 
 /* ─── Animation helpers ─────────────────────────────────────── */
-
-const ease = [0.16, 1, 0.3, 1] as const;
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },

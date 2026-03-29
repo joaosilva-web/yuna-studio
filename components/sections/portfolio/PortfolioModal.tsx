@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Zap, Wrench, TrendingUp } from "lucide-react";
@@ -34,7 +34,6 @@ interface PortfolioModalProps {
 }
 
 export default function PortfolioModal({ project, onClose }: PortfolioModalProps) {
-  const scrollRef = useRef<HTMLDivElement>(null);
   const [activeImage, setActiveImage] = useState(0);
 
   useEffect(() => {
@@ -90,7 +89,7 @@ export default function PortfolioModal({ project, onClose }: PortfolioModalProps
             </button>
 
             {/* Scroll area */}
-            <div ref={scrollRef} className="overflow-y-auto overscroll-contain">
+            <div className="overflow-y-auto overscroll-contain">
               {/* Gallery */}
               <div className="relative aspect-[16/9] w-full overflow-hidden bg-surface">
                 <AnimatePresence mode="wait">

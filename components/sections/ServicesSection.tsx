@@ -1,6 +1,5 @@
 "use client";
 
-import { useRef } from "react";
 import Reveal from "../ui/Reveal";
 import Container from "../layout/Container";
 
@@ -252,10 +251,8 @@ function SEOHighlight() {
 /* ─── Main section ──────────────────────────────────────────── */
 
 export default function ServicesSection() {
-  const ref = useRef<HTMLElement>(null);
-
   return (
-    <section id="services" ref={ref} className="relative overflow-hidden py-32 md:py-44">
+    <section id="services" className="relative overflow-hidden py-32 md:py-44">
       {/* Subtle top line */}
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
 
