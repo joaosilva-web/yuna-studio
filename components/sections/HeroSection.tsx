@@ -154,6 +154,7 @@ export default function HeroSection() {
         muted
         playsInline
         preload="auto"
+        poster="/images/hero-poster.jpg"
         onLoadedData={() => setVideoReady(true)}
         onCanPlayThrough={() => setVideoReady(true)}
         className="absolute inset-0 h-full w-full scale-110 object-cover"

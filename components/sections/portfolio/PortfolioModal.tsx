@@ -81,9 +81,10 @@ export default function PortfolioModal({ project, onClose }: PortfolioModalProps
             {/* Close button */}
             <button
               onClick={onClose}
+              aria-label="Fechar projeto"
               className="absolute right-4 top-4 z-20 flex h-9 w-9 items-center justify-center rounded-full border border-white/[0.1] bg-black/60 text-muted-dark backdrop-blur-sm transition-colors duration-200 hover:border-white/20 hover:text-foreground cursor-pointer"
             >
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" aria-hidden="true">
                 <path d="M1 1l12 12M13 1L1 13" />
               </svg>
             </button>
@@ -127,6 +128,8 @@ export default function PortfolioModal({ project, onClose }: PortfolioModalProps
                       <button
                         key={i}
                         onClick={() => setActiveImage(i)}
+                        aria-label={`Ver imagem ${i + 1}`}
+                        aria-current={i === activeImage ? "true" : undefined}
                         className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
                           i === activeImage
                             ? "w-6 bg-accent"

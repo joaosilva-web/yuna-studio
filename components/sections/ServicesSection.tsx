@@ -22,6 +22,7 @@ const mainServices = [
         fill="none"
         className="h-6 w-6"
         stroke="currentColor"
+        aria-hidden="true"
         strokeWidth={1.5}
       >
         <path
@@ -48,6 +49,7 @@ const mainServices = [
         fill="none"
         className="h-6 w-6"
         stroke="currentColor"
+        aria-hidden="true"
         strokeWidth={1.5}
       >
         <path
@@ -208,6 +210,7 @@ function SEOHighlight() {
               fill="none"
               className="h-4 w-4 text-accent"
               stroke="currentColor"
+              aria-hidden="true"
               strokeWidth={1.5}
             >
               <path

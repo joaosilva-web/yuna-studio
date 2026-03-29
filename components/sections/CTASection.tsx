@@ -102,7 +102,7 @@ export default function CTASection() {
             <span className="italic text-accent">ideia do papel</span>
           </h2>
 
-          <ArrowButton href="#" />
+          <ArrowButton href="#contact" label="Iniciar projeto" />
         </Reveal>
       </Container>
     </section>

@@ -21,6 +21,7 @@ const steps = [
         fill="none"
         className="h-5 w-5"
         stroke="currentColor"
+        aria-hidden="true"
         strokeWidth={1.5}
       >
         <path
@@ -42,6 +43,7 @@ const steps = [
         fill="none"
         className="h-5 w-5"
         stroke="currentColor"
+        aria-hidden="true"
         strokeWidth={1.5}
       >
         <path
@@ -63,6 +65,7 @@ const steps = [
         fill="none"
         className="h-5 w-5"
         stroke="currentColor"
+        aria-hidden="true"
         strokeWidth={1.5}
       >
         <path

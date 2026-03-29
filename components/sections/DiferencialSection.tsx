@@ -13,6 +13,7 @@ const pillars = [
         fill="none"
         className="h-6 w-6"
         stroke="currentColor"
+        aria-hidden="true"
         strokeWidth={1.5}
       >
         <path
@@ -33,6 +34,7 @@ const pillars = [
         fill="none"
         className="h-6 w-6"
         stroke="currentColor"
+        aria-hidden="true"
         strokeWidth={1.5}
       >
         <path
@@ -53,6 +55,7 @@ const pillars = [
         fill="none"
         className="h-6 w-6"
         stroke="currentColor"
+        aria-hidden="true"
         strokeWidth={1.5}
       >
         <path
@@ -112,7 +115,7 @@ export default function DiferencialSection() {
               </p>
 
               <div className="relative mt-6 flex h-10 w-10 items-center justify-center">
-                <ArrowButton href="#" variant="on-accent" />
+                <ArrowButton href="#services" variant="on-accent" label="Ver nossos serviços" />
               </div>
             </Reveal>
           </Reveal>

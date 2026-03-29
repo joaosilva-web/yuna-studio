@@ -18,24 +18,28 @@ const variantStyles: Record<Variant, { wrapper: string; arrow: string }> = {
 export default function ArrowButton({
   href,
   variant = "default",
+  label = "Ir para o link",
 }: {
   href: string;
   variant?: Variant;
+  label?: string;
 }) {
   const { wrapper, arrow } = variantStyles[variant];
 
   return (
     <a
       href={href}
+      aria-label={label}
       className={`group mb-1 flex h-14 w-14 shrink-0 items-center justify-center rounded-full border transition-all duration-500 hover:scale-110 ${wrapper}`}
     >
-      <span className="relative flex h-10 w-10 items-center justify-center">
+      <span className="relative flex h-10 w-10 items-center justify-center" aria-hidden="true">
         <svg
           viewBox="0 0 24 24"
           fill="none"
           className={`absolute z-10 h-5 w-5 transition-transform duration-500 ease-out group-hover:translate-x-3 group-hover:-translate-y-3 ${arrow}`}
           stroke="currentColor"
           strokeWidth={2}
+          aria-hidden="true"
         >
           <path strokeLinecap="round" strokeLinejoin="round" d={arrowPath} />
         </svg>
@@ -45,6 +49,7 @@ export default function ArrowButton({
           className={`absolute z-0 h-5 w-5 opacity-0 transition-all duration-500 ease-out group-hover:opacity-100 group-hover:translate-x-1.5 group-hover:-translate-y-1.5 ${arrow}`}
           stroke="currentColor"
           strokeWidth={2}
+          aria-hidden="true"
         >
           <path strokeLinecap="round" strokeLinejoin="round" d={arrowPath} />
         </svg>

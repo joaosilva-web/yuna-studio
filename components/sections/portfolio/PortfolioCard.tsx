@@ -24,6 +24,9 @@ interface PortfolioCardProps {
 export default function PortfolioCard({ project, index, uniform, onClick }: PortfolioCardProps) {
   return (
     <motion.div
+      role="button"
+      tabIndex={0}
+      aria-label={`Ver detalhes do projeto ${project.title}`}
       className={`group relative cursor-pointer overflow-hidden rounded-2xl border border-white/[0.06] ${uniform ? "" : (heightMap[project.height] ?? "row-span-1")}`}
       initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
@@ -34,6 +37,7 @@ export default function PortfolioCard({ project, index, uniform, onClick }: Port
       }}
       layout
       onClick={onClick}
+      onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") onClick(); }}
     >
       {/* Image */}
       <div className={`relative w-full overflow-hidden ${uniform ? "aspect-[4/3]" : aspectMap[project.height]}`}>
@@ -75,6 +79,7 @@ export default function PortfolioCard({ project, index, uniform, onClick }: Port
             viewBox="0 0 24 24"
             stroke="currentColor"
             strokeWidth={2}
+            aria-hidden="true"
           >
             <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
           </svg>
