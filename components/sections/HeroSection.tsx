@@ -6,7 +6,8 @@ import Container from "../layout/Container";
 import Button from "../ui/Button";
 import { WHATSAPP_URL } from "@/lib/config";
 
-const FADE_MS = 800;
+const FADE_MS = 800;        // CSS transition duration
+const FADE_BUFFER_S = 1.5;  // Start fade this many seconds before loop end
 
 const spring = {
   type: "spring",
@@ -121,18 +122,16 @@ export default function HeroSection() {
       video.playbackRate = 0.5;
     } catch (e) {}
 
-    if (video.readyState >= 3) {
-      const id = requestAnimationFrame(() => setVideoReady(true));
-      // ensure cleanup in case effect re-runs
-      return () => cancelAnimationFrame(id);
+    if (video.readyState >= 3 && !videoReady) {
+      requestAnimationFrame(() => setVideoReady(true));
     }
 
     const handleTimeUpdate = () => {
       if (!videoReady && video.readyState >= 3) setVideoReady(true);
       if (!video.duration) return;
       const remaining = video.duration - video.currentTime;
-      if (remaining <= FADE_MS / 1000) setVisible(false);
-      else if (video.currentTime < FADE_MS / 1000) setVisible(true);
+      if (remaining <= FADE_BUFFER_S) setVisible(false);
+      else if (video.currentTime < FADE_BUFFER_S) setVisible(true);
     };
 
     video.addEventListener("timeupdate", handleTimeUpdate);
