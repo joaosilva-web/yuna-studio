@@ -15,27 +15,27 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    id: "retrofuture",
-    title: "RetroFuture v.1",
-    category: "E-Commerce",
-    image: "/images/work-1.svg",
-    gallery: ["/images/work-1.svg", "/images/work-1.png"],
+    id: "ocalhambeque",
+    title: "O Calhambeque Hot-dog",
+    category: "Landing Page",
+    image: "/images/ocalhambequeporfolio.png",
+    gallery: ["/images/ocalhambequeporfolio.png", "/images/ocalhambequeporfolio2.png"],
     height: "tall",
     featured: true,
     description:
       "Plataforma de e-commerce completa com arquitetura moderna, otimizada para conversão e performance.",
     problem:
-      "O cliente precisava de uma loja online que suportasse alto volume de tráfego e oferecesse uma experiência de compra fluida, mas a plataforma antiga era lenta e difícil de gerenciar.",
+      "O cliente precisava de uma loja online que suportasse alto volume de tráfego e oferecesse uma experiência fluida, mas a plataforma antiga era lenta e difícil de gerenciar.",
     solution:
-      "Desenvolvemos uma plataforma de e-commerce do zero com Next.js, integrações de pagamento e um painel administrativo intuitivo com gestão de estoque em tempo real.",
+      "Desenvolvemos uma plataforma de e-commerce do zero com Next.js, melhorando o SEO e a velocidade de carregamento, além de integrar uma landing page segura e um painel administrativo intuitivo.",
     result:
-      "Aumento de 180% na taxa de conversão e redução de 60% no tempo de carregamento das páginas.",
+      "Aumento de 180% na taxa de conversão de clientes e redução de 60% no tempo de carregamento das páginas.",
     technologies: ["Next.js", "TypeScript", "Stripe", "Tailwind CSS", "PostgreSQL"],
   },
   {
-    id: "lumina-labs",
-    title: "Lumina Labs",
-    category: "Brand Experience",
+    id: "andreia-atelier",
+    title: "Andreia Atelier",
+    category: "Visual Identity & Website",
     image: "/images/work-2.svg",
     gallery: ["/images/work-2.svg"],
     height: "medium",
