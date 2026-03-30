@@ -4,6 +4,8 @@ import { useRef, useEffect } from "react";
 import Reveal from "../ui/Reveal";
 import Container from "../layout/Container";
 import ArrowButton from "../ui/ArrowButton";
+import { Mail, MessageCircle } from "lucide-react";
+import Button from "../ui/Button";
 
 const cards = [
   {
@@ -95,15 +97,66 @@ export default function CTASection() {
         </Reveal>
 
         {/* Headline + arrow */}
-        <Reveal delay={0.1} className="mt-20 flex items-end justify-between">
-          <h2 className="text-4xl font-extrabold uppercase leading-none md:text-6xl lg:text-7xl">
-            Vamos tirar sua
-            <br />
-            <span className="italic text-accent">ideia do papel</span>
-          </h2>
+        <Reveal delay={0.1} className="mt-20">
+  <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
+    
+    {/* LEFT CONTENT */}
+    <div>
+      <h2 className="text-4xl font-extrabold uppercase leading-none md:text-6xl lg:text-7xl">
+        Vamos tirar sua
+        <br />
+        <span className="italic text-accent">ideia do papel</span>
+      </h2>
 
-          <ArrowButton href="#contact" label="Iniciar projeto" />
-        </Reveal>
+      {/* CTA BUTTONS */}
+      <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
+        {/* WhatsApp */}
+        <a
+          href="https://wa.me/5511993495934?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20solicitar%20um%20orçamento."
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Chamar no WhatsApp"
+          className="w-full sm:w-auto"
+        >
+          <Button
+            variant="primary"
+            className="w-full sm:w-auto flex items-center gap-2"
+            type="button"
+          >
+            <MessageCircle className="w-5 h-5 text-white group-hover:animate-bounce" aria-hidden="true" />
+            Chamar no WhatsApp
+          </Button>
+        </a>
+
+        {/* Email */}
+        <a
+          href="mailto:contatoyunastudio@outlook.com"
+          aria-label="Enviar email"
+          className="w-full sm:w-auto"
+        >
+          <Button
+            variant="secondary"
+            className="w-full sm:w-auto flex items-center gap-2"
+            type="button"
+          >
+            <Mail className="w-5 h-5 text-accent group-hover:animate-pulse" aria-hidden="true" />
+            Enviar um email
+          </Button>
+        </a>
+      </div>
+
+      {/* TRUST TEXT */}
+      <div className="mt-3 flex items-center gap-2 text-sm text-muted-dark">
+        <span className="inline-block h-2 w-2 rounded-full bg-green-400 shadow-[0_0_8px_2px_rgba(34,197,94,0.7)] animate-pulse" />
+        Resposta rápida • Sem compromisso
+      </div>
+    </div>
+
+    {/* RIGHT */}
+    <ArrowButton href="#" label="Voltar ao início" />
+    
+  </div>
+</Reveal>
       </Container>
     </section>
   );
