@@ -51,20 +51,20 @@ export const projects: Project[] = [
     technologies: ["React", "Framer Motion", "Figma", "Node.js"],
   },
   {
-    id: "gestao-smart",
-    title: "Gestão Smart",
-    category: "Sistema Web",
-    image: "/images/work-3.png",
-    gallery: ["/images/work-3.png"],
+    id: "finq",
+    title: "FinQ",
+    category: "Sistema Web & SaaS",
+    image: "/images/finqportfolio.png",
+    gallery: ["/images/finqportfolio.png" , "/images/finqportfolio2.png"],
     height: "short",
     description:
-      "Sistema de gestão empresarial com dashboard inteligente e automações de processos.",
+      "Sistema de gestão financeira com dashboard inteligente e automações de processos.",
     problem:
-      "Empresa gerenciava estoque, vendas e financeiro em planilhas separadas, causando erros e retrabalho constante.",
+      "Criado para pessoas com dificuldades em organizar suas finanças, o cliente precisava de uma solução que fosse fácil de usar, mas poderosa o suficiente para oferecer insights financeiros valiosos.",
     solution:
-      "Desenvolvemos um sistema web completo com dashboard em tempo real, controle de estoque automatizado e relatórios financeiros integrados.",
+      "Desenvolvemos um sistema web completo com dashboard em tempo real, controle de finanças automatizado e relatórios financeiros integrados.",
     result:
-      "Automação total do processo operacional e ganho de 40% em produtividade da equipe.",
+      "Automação total do processo financeiro pessoal, com 85% de redução no tempo gasto em tarefas financeiras e aumento significativo na saúde financeira dos usuários.",
     technologies: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Tailwind CSS"],
   },
   {
@@ -84,23 +84,23 @@ export const projects: Project[] = [
       "Aumento de 250% no volume de contatos e redução do ciclo de vendas em 30%.",
     technologies: ["Next.js", "Framer Motion", "Tailwind CSS", "Vercel"],
   },
-  {
-    id: "connect-hub",
-    title: "ConnectHub",
-    category: "Plataforma",
-    image: "/images/work-1.png",
-    gallery: ["/images/work-1.png", "/images/work-1.svg"],
-    height: "medium",
-    description:
-      "Plataforma de networking profissional com matching inteligente e eventos integrados.",
-    problem:
-      "Comunidade de profissionais sem uma ferramenta centralizada para conexões, eventos e compartilhamento de conteúdo relevante.",
-    solution:
-      "Desenvolvemos uma plataforma com sistema de matching por interesses, calendário de eventos, chat em tempo real e feed de conteúdo curado.",
-    result:
-      "Mais de 2.000 usuários ativos nos primeiros 3 meses com taxa de retenção de 78%.",
-    technologies: ["React", "Node.js", "Socket.io", "MongoDB", "AWS"],
-  },
+ {
+  id: "approve-flow",
+  title: "Approve Flow",
+  category: "Plataforma SaaS",
+  image: "/images/approveporfolio.png",
+  gallery: ["/images/approveporfolio.png", "/images/approveporfolio2.png"],
+  height: "medium",
+  description:
+    "Plataforma SaaS para gestão de projetos entre freelancers e clientes, com foco em organização, validação de entregas e comunicação estruturada.",
+  problem:
+    "Freelancers enfrentam dificuldade em organizar demandas, validar entregas e manter comunicação clara com clientes, resultando em retrabalho e desalinhamento.",
+  solution:
+    "Desenvolvemos uma plataforma com gestão de tasks, sistema de aprovação de entregas, chat em tempo real com threads e notificações inteligentes, além de personalização da experiência do cliente com identidade do freelancer.",
+  result:
+    "Melhoria na organização dos projetos, redução de retrabalho e comunicação mais clara entre freelancers e clientes, aumentando a eficiência no fluxo de entregas.",
+  technologies: ["React", "Next.js", "TypeScript", "Node.js", "Prisma", "Supabase", "PostgreSQL"],
+},
   {
     id: "eco-track",
     title: "EcoTrack",
